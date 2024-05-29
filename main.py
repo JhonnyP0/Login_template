@@ -28,26 +28,35 @@ def signup():
 
 @app.route('/login')
 def login():
-    return render_template('login')
+    return render_template('login.html')
+
+@app.route('/access_granted')
+def access_granted():
+    return render_template('access_granted.html')
 
 
 
 @app.route('/login_protocol', methods=['POST','GET'])
 def login_protocol():
     if request.method=='POST':
-        username=request.form['username']
+        username=request.form['name']
         try:
             conn=get_db_connection()
             cur=conn.cursor()
-            
+
+
+            #tutaj zmien tak zeby sprawdzal czy username istneieje w bazie
+            #jezeli tak to sprawdza haslo
+            #jezeli sie zgadzaja oba to access_granted.html
             cur.execute("SELECT username, password FROM user_data WHERE username LIKE %s",["%"+username+"%"])
             data= cur.fetchone()
 
             if data:
-                return render_template('access_granted.html')
+                return redirect(url_for('access_granted'))
             else:
                 render_template('login.html',error="Something went wrong")
-            cur.close()
+                cur.close()
+
         except Exception as e:
             error_message=str(e)
             return render_template('login.html', error=error_message)
