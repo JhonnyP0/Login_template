@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Submit Data</title>
+    <title>Sign Up</title>
 </head>
 <body>
-    <h1>Submit Data</h1>
-    <form action="{{ url_for('signup_protocol') }}" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
-        <label for="password">Password:</label>
-        <input type="text" id="password" name="password" required><br><br>
-        <button type="submit">Sign Up</button>
-    </form>
+    <div>
+        <h1>Sign Up</h1>
+        <form action="{{ url_for('signup_protocol') }}" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="password">Password:</label>
+            <input type="text" id="password" name="password" required><br><br>
+            <button class ="my-button" type="submit">Sign Up</button>
+        </form>
+    </div>
 </body>
 </html>
