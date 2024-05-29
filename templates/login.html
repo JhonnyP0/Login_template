@@ -7,12 +7,12 @@
 </head>
 <body>
     <h1>Submit Data</h1>
-    <form action="{{ url_for('submit') }}" method="post">
+    <form action="{{ url_for('login_protocol') }}" method="post">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required><br><br>
         <label for="password">Password:</label>
         <input type="text" id="password" name="password" required><br><br>
-        <button type="submit">Submit</button>
+        <button type="submit">Sign Up</button>
     </form>
 </body>
 </html>

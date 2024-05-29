@@ -7,9 +7,13 @@
 </head>
 <body>
     <div id="cont">
-    <h1>Welcome</h1>
-    <button onclick ="window.location.href= {{ url_for('index') }}" id='login'>Log In</button>
-    <button id='singup'>Sing Up</button>
+        <h1>Welcome</h1>
+        <button id='login'>Log In</button>
+
+        <form action="{{ url_for('signup') }}" method="get">
+            <button type="submit">Sign Up</button>
+        </form>
+
     </div>
 </body>
 </html>
